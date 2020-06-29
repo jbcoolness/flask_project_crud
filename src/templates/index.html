@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+
+
+
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">DataTables Alumnos</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Apellido</th>
+                      <th>Email</th>
+                      <th>Edad</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Apellido</th>
+                      <th>Email</th>
+                      <th>Edad</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    {% if data|length == 0 %}
+
+                        <h1>No hay datos</h1>
+
+                    {% else %}
+
+                        {% for row in data %}
+                            <tr>
+                                <td>{{ row[1] }}</td>
+                                <td>{{ row[2] }}</td>
+                                <td>{{ row[3] }}</td>
+                                <td>{{ row[4] }}</td>
+                            </tr>
+                        {% endfor%}
+                    {% endif%}
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+{% endblock%}
