@@ -12,5 +12,17 @@ def index():
 
     return render_template('index.html', data = data)
 
+@app.route('/login')
+def login():
+    #data = db.read(None)
+
+    return render_template('login.html')
+
+@app.route('/register')
+def register():
+    #data = db.read(None)
+
+    return render_template('register.html')
+
 if __name__ == __name__:
     app.run(port=8000, host= "127.0.0.1")
