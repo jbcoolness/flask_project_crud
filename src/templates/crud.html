@@ -1,0 +1,74 @@
+{% extends 'layout.html'%}
+
+
+{% block content %}
+
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">CRUD de resgistros!</h1>
+              </div>
+              <form class="user">
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="NOMBRE">
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="APELLIDO">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-9">
+                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email">
+                  </div>
+
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control form-control-user" id="exampleInputEdad" placeholder="Edad">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <a href="#" class="btn btn-primary btn-user btn-block">
+                          <i class="fas fa-plus-circle"></i> Crear Registro
+                        </a>
+                    </div>
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <a href="#" class="btn btn-primary btn-user btn-block">
+                          <i class="fas fa-search"></i> Buscar Registro
+                        </a>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <a href="#" class="btn btn-google btn-user btn-block">
+                          <i class="fas fa-minus-circle"></i></i> Eliminar Registro
+                        </a>
+                    </div>
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <a href="#" class="btn btn-primary btn-user btn-block">
+                          <i class="fas fa-edit"></i> Actualizar Registro
+                        </a>
+                    </div>
+                </div>
+
+              </form>
+              <hr>
+              <div class="text-center">
+                <a class="small" href="{{ url_for('index') }}">Regresar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

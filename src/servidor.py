@@ -18,6 +18,12 @@ def login():
 
     return render_template('login.html')
 
+@app.route('/crud')
+def crud():
+    #data = db.read(None)
+
+    return render_template('crud.html')
+
 @app.route('/register')
 def register():
     #data = db.read(None)
