@@ -6,13 +6,17 @@
     <div class="container-fluid">
 
 
-
-
-
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">DataTables Alumnos</h6>
+              <h6 class="m-0 font-weight-bold text-primary">DataTables Alumnos
+                  <button type="button" class="btn-success pull-right" data-toggle="modal" data-target="#myModal">
+                      <i class="fas fa-plus-circle"></i>
+                  </button>
+              </h6>
+              <!--<a href="#" class="btn btn-primary btn-user btn-block">
+                <i class="fas fa-search"></i> Buscar Registro
+              </a>-->
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -23,6 +27,7 @@
                       <th>Apellido</th>
                       <th>Email</th>
                       <th>Edad</th>
+                      <th>Accion</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -31,6 +36,7 @@
                       <th>Apellido</th>
                       <th>Email</th>
                       <th>Edad</th>
+                      <th>Accion</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -46,6 +52,14 @@
                                 <td>{{ row[2] }}</td>
                                 <td>{{ row[3] }}</td>
                                 <td>{{ row[4] }}</td>
+                                <td>
+                                    <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModalEdit">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModalDelete" onclick="return confirm('¿Estas seguro de eliminar el registro?')">
+                                        <i class="fas fa-minus-circle"></i>
+                                    </a>
+                                </td>
                             </tr>
                         {% endfor%}
                     {% endif%}
@@ -55,6 +69,44 @@
               </div>
             </div>
           </div>
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"> Insertar Nuevo Registro</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">x</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="user" method="POST" action="">
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input name="nombre" type="text" class="form-control form-control-user" id="exampleFirstName" required="1" placeholder="NOMBRE">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input name="apellido" type="text" class="form-control form-control-user" id="exampleLastName" required="1" placeholder="APELLIDO">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-9">
+                                    <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" required="1" placeholder="Email">
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <input name="edad" type="text" class="form-control form-control-user" id="exampleInputEdad" required="1" placeholder="Edad">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-user btn-block">Insertar</button>
+                        <button type="button" class="btn btn-secondary btn-user btn-block" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
