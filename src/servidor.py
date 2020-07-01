@@ -12,23 +12,28 @@ def index():
 
     return render_template('index.html', data = data)
 
-@app.route('/login')
+@app.route('/login/')
 def login():
-    #data = db.read(None)
 
     return render_template('login.html')
 
-@app.route('/crud')
+@app.route('/crud', methods = ['POST', 'GET'])
 def crud():
-    #data = db.read(None)
+    if request.method == 'POST' and request.form['save']:
+        if db.insert(request.form):
+            flash('Resgistro guardado')
+        else:
+            flash('No se pudo guardar el registro')
 
-    return render_template('crud.html')
+        return redirect(url_for('index'))
+    else:
+        return redirect(url_for('index'))
+
 
 @app.route('/register')
 def register():
-    #data = db.read(None)
 
     return render_template('register.html')
 
 if __name__ == __name__:
-    app.run(port=8000, host= "127.0.0.1")
+    app.run(debug=True, port=8000)
