@@ -95,7 +95,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form class="user" method="POST" action="" id="idFrmUsuarios">
+                        <form class="user" method="POST" action="{{ url_for('insert') }}" id="idFrmUsuarios">
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input name="nombre" type="text" class="form-control form-control-user" id="idNombre" required="1" placeholder="NOMBRE">
@@ -114,7 +114,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button name="save" id="idBtnAccion" type="submit" class="btn btn-primary btn-user btn-block">Isertar</button>
+                                <button name="save" id="idBtnAccion" type="submit" class="btn btn-primary btn-user btn-block">Insertar</button>
                             </div>
                         </form>
                     </div>

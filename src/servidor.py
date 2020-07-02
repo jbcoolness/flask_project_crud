@@ -21,7 +21,9 @@ def login():
 # Se define para agregar registros en la base de datos
 @app.route('/insert', methods=["GET", "POST"])
 def insert():
-    if request.method == 'POST' and request.form['save']:
+    print('Entro al insert')
+    if request.method == 'POST':
+        print('Entro al request.method')
         if db.insert(request.form):
             flash('Resgistro guardado', 'alert-success')
         else:
@@ -29,6 +31,7 @@ def insert():
 
         return redirect(url_for('index'))
     else:
+        print('Entro al insert y salio de una')
         return redirect(url_for('index'))
 
 
