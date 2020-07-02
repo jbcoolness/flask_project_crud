@@ -26,7 +26,7 @@ class Database:
         cursor = con.cursor()
 
         try:
-            cursor.execute("INSERT INTO alumnos(NOMBRE, APELLIDO, EMAIL, EDAD) VALUES (%s, %s, %s, %s)", (data['NOMBRE'], data['APELLIDO'], data['EMAIL'], data['EDAD'],))
+            cursor.execute("INSERT INTO alumnos(nombre, apellido, email, edad) VALUES (%s, %s, %s, %s)", (data['nombre'], data['apellido'], data['email'], data['edad'],))
             con.commit()
 
             return True

@@ -18,6 +18,38 @@
   <!-- Custom styles for this template-->
   <link href="{{ url_for('static', filename='css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+  <!-- Funciones JavaScript-->
+  <script type="text/javascript">
+    $(document).ready(function ()
+    {
+    });
+
+    //Funcion para insertar un registro
+    function fnInsertarUsuario()
+    {
+      // Inicializa los datos del form
+      $('#idNombre').val('')
+      $('#idApellido').val('')
+      $('#idEmail').val('')
+      $('#idEdad').val('')
+
+      // Cambia los datos del boton y el titulo
+      $('#idTituloModal').html('Insertar Nuevo Registro');
+      $('#idBtnInsertar').html('Insertar');
+
+      // Habilitar los datos
+      $('#idNombre').prop('disabled', false);
+      $('#idApellido').prop('disabled', false);
+      $('#idEmail').prop('disabled', false);
+      $('#idEdad').prop('disabled', false);
+
+      // Cambia la url del action
+      $('#idFrmUsuarios').attr('action', "{{ url_for('insert') }}");
+      $('#idDlgUsuarios').modal('show')
+    }
+
+  </script>
+
 </head>
 <body id="page-top">
 
@@ -104,7 +136,7 @@
             <h6 class="collapse-header">Login Screens:</h6>
             <a class="collapse-item" href="{{ url_for('login') }}">Login</a>
             <a class="collapse-item" href="{{ url_for('register') }}">Register</a>
-            <a class="collapse-item" href="{{ url_for('crud') }}">Crud</a>
+            <a class="collapse-item" href="#">Crud</a>
             <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
             <div class="collapse-divider"></div>
             <!--<h6 class="collapse-header">Other Pages:</h6>

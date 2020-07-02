@@ -6,24 +6,26 @@ app.secret_key = 'my_clave_secreta'
 
 db = Database()
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
     data = db.read(None)
-
     return render_template('index.html', data = data)
 
-@app.route('/login/')
+
+
+@app.route('/login')
 def login():
 
     return render_template('login.html')
 
-@app.route('/crud', methods = ['POST', 'GET'])
-def crud():
+# Se define para agregar registros en la base de datos
+@app.route('/insert', methods=["GET", "POST"])
+def insert():
     if request.method == 'POST' and request.form['save']:
         if db.insert(request.form):
-            flash('Resgistro guardado')
+            flash('Resgistro guardado', 'alert-success')
         else:
-            flash('No se pudo guardar el registro')
+            flash('No se pudo guardar el registro', 'alert-warning')
 
         return redirect(url_for('index'))
     else:
