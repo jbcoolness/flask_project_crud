@@ -48,6 +48,33 @@
       $('#idDlgUsuarios').modal('show')
     }
 
+    // Function for update
+    function fnEditUsuario(id, nombre, apellido, email, edad)
+    {
+      // cargar datos en el form
+      $('#idId').val(id)
+      $('#idNombre').val(nombre)
+      $('#idApellido').val(apellido)
+      $('#idEmail').val(email)
+      $('#idEdad').val(edad)
+
+      // cambiamos lo datos del boton y del titulo
+      $('#idTituloModal').html('Editar Registro');
+      $('#idBtnAccion').html('Editar');
+
+      // Habilitar los datos
+      $('#idNombre').prop('disabled', false);
+      $('#idApellido').prop('disabled', false);
+      $('#idEmail').prop('disabled', false);
+      $('#idEdad').prop('disabled', false);
+
+      // Cambia la url del action
+      $('#idFrmUsuarios').attr('action', "{{ url_for('update') }}");
+      $('#idDlgUsuarios').modal('show')
+
+
+    }
+
   </script>
 
 </head>
