@@ -34,6 +34,19 @@ def insert():
         print('Entro al insert y salio de una')
         return redirect(url_for('index'))
 
+@app.route('/update', methods= ['POST'])
+def update():
+    if request.method == 'POST':
+
+        if db.update(request.form):
+            flash('Registro Actualizado', 'alert-success')
+        else:
+            flash('No se pudo actualizar el resgistro', 'alert-warning')
+
+        return redirect(url_for('index'))
+    else:
+        return redirect(url_for('index'))
+
 
 @app.route('/register')
 def register():

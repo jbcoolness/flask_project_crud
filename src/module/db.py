@@ -37,3 +37,21 @@ class Database:
 
         finally:
             con.close()
+
+    def update(self, data):
+        con = Database.connect(self)
+        cursor = con.cursor()
+
+        try:
+            cursor.execute("UPDATE alumnos set nombre = %s, apellido = %s, email = %s, edad = %s WHERE id = %s", (data['nombre'], data['apellido'], data['email'], data['edad'], data['id'],))
+            con.commit()
+
+            return True
+        except:
+            con.rollback()
+
+            return False
+        finally:
+            con.close()
+
+
